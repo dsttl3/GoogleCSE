@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- * GetSURL 测试
+ * 返回json
  */
 public class Get implements HttpRequestHandler {
 

@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- * GetSURL 测试
+ * 返回 html
  */
 public class GetHtml implements HttpRequestHandler {
 
