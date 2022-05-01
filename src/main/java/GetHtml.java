@@ -51,8 +51,6 @@ public class GetHtml implements HttpRequestHandler {
             cse.setResults(gcse.getResults());
         }
         String htmlTitle = "<!DOCTYPE html>\n" +
-                "<html>\n" +
-                "\n" +
                 "<head>\n" +
                 "    <title>"+sou+"</title>\n" +
                 "<link type=\"text/css\" href=\"https://dsttl3.cn/css/st.css\" rel=\"stylesheet\">"+
@@ -103,7 +101,7 @@ public class GetHtml implements HttpRequestHandler {
                 "        </a>\n" +
                 "\n" +
                 "    </div>\n" +
-                "</body>";
+                "</body></html>";
         String html = htmlTitle + htmlBody;
         OutputStream out = httpServletResponse.getOutputStream();
         out.write(html.getBytes("UTF-8"));
