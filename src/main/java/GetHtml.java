@@ -50,7 +50,7 @@ public class GetHtml implements HttpRequestHandler {
             cse.setSearchResultTime(gcse.getCursor().getSearchResultTime());
             cse.setResults(gcse.getResults());
         }
-        String htmlTitle = "<!DOCTYPE html>\n" +
+        String htmlTitle = "<!DOCTYPE html>\n<html>" +
                 "<head>\n" +
                 "    <title>"+sou+"</title>\n" +
                 "<link type=\"text/css\" href=\"https://dsttl3.cn/css/st.css\" rel=\"stylesheet\">"+
