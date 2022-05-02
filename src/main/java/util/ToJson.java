@@ -7,7 +7,7 @@ import com.google.gson.Gson;
 /**
  * 将Google返回的json转成自用json
  */
-public class GetJson {
+public class ToJson {
     public String load(String json,String sou,int index){
         json = json.substring(34,json.length()-2);
         GCes gcse = new Gson().fromJson(json,GCes.class);
