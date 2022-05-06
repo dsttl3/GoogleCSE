@@ -15,6 +15,7 @@ import java.io.OutputStream;
 
 /**
  * 返回 html
+ * @author dsttl3
  */
 public class GetHtml implements HttpRequestHandler {
 
@@ -50,11 +51,10 @@ public class GetHtml implements HttpRequestHandler {
             cse.setSearchResultTime(gcse.getCursor().getSearchResultTime());
             cse.setResults(gcse.getResults());
         }
-        StringBuffer htmlTitle = new StringBuffer();
-        htmlTitle.append("<!DOCTYPE html>\n<html><head>\n<title>");
-        htmlTitle.append(sou);
-        htmlTitle.append("</title>\n<link type=\"text/css\" href=\"https://dsttl3.cn/css/st.css\" rel=\"stylesheet\"></head>");
-        StringBuffer htmlList = new StringBuffer();
+        String htmlTitle = "<!DOCTYPE html>\n<html><head>\n<title>" +
+                sou +
+                "</title>\n<link type=\"text/css\" href=\"https://dsttl3.cn/css/st.css\" rel=\"stylesheet\"></head>";
+        StringBuilder htmlList = new StringBuilder();
         for (Result result : cse.getResults()) {
             htmlList.append("<div class=\"google-list\">\n<a href=\"");
             htmlList.append(result.getUnescapedUrl());
@@ -68,25 +68,23 @@ public class GetHtml implements HttpRequestHandler {
             htmlList.append(result.getVisibleUrl());
             htmlList.append("</div>\n</div>");
         }
-        StringBuffer souHtml = new StringBuffer();
-        souHtml.append("<div class=\"m_top\">\n<div class=\"top_icon\"><img style=\"height: 50px; margin-left: 30px;\" src=\"https://dsttl3.cn/img/dstt.png\" /></div>\n");
-        souHtml.append("<div class=\"top_sou\">\n");
-        souHtml.append("<form class=\"search_form\" action=\"https://google.dsttl3.cn/\"> \n<input type=\"text\" class=\"input_text\" name=\"sou\" value=\"");
-        souHtml.append(sou);
-        souHtml.append("\">\n<input type=\"submit\" value=\"&#x641C;&#x7D22;\" class=\"input_sub\">\n</form>\n</div>\n</div>");
-        StringBuffer htmlBody = new StringBuffer();
-        htmlBody.append("<body>\n");
-        htmlBody.append(souHtml);
-        htmlBody.append("<div class=\"main\">\n<div class=\"top\">&#x641C;&#x7D22;&#x5230;<b>");
-        htmlBody.append(cse.getResultCount());
-        htmlBody.append("</b>&#x4E2A;&#x7ED3;&#x679C;&#xFF0C;&#x8017;&#x65F6;&#xFF1A;<b>");
-        htmlBody.append(cse.getSearchResultTime());
-        htmlBody.append("</b>&#x79D2;&#x3002;</div>");
-        htmlBody.append(htmlList);
-        htmlBody.append("<a href=\"");
-        htmlBody.append(cse.getNext());
-        htmlBody.append("\">\n<div class=\"next\">&#x4E0B;&#x4E00;&#x9875;</div>\n</a>\n</div>\n</body></html>");
-        String html = htmlTitle.toString() + htmlBody.toString();
+        String souHtml = "<div class=\"m_top\">\n<div class=\"top_icon\"><img style=\"height: 50px; margin-left: 30px;\" src=\"https://dsttl3.cn/img/dstt.png\" /></div>\n" +
+                "<div class=\"top_sou\">\n" +
+                "<form class=\"search_form\" action=\"https://google.dsttl3.cn/\"> \n<input type=\"text\" class=\"input_text\" name=\"sou\" value=\"" +
+                sou +
+                "\">\n<input type=\"submit\" value=\"&#x641C;&#x7D22;\" class=\"input_sub\">\n</form>\n</div>\n</div>";
+        String htmlBody = "<body>\n" +
+                souHtml +
+                "<div class=\"main\">\n<div class=\"top\">&#x641C;&#x7D22;&#x5230;<b>" +
+                cse.getResultCount() +
+                "</b>&#x4E2A;&#x7ED3;&#x679C;&#xFF0C;&#x8017;&#x65F6;&#xFF1A;<b>" +
+                cse.getSearchResultTime() +
+                "</b>&#x79D2;&#x3002;</div>" +
+                htmlList +
+                "<a href=\"" +
+                cse.getNext() +
+                "\">\n<div class=\"next\">&#x4E0B;&#x4E00;&#x9875;</div>\n</a>\n</div>\n</body></html>";
+        String html = htmlTitle + htmlBody;
         OutputStream out = httpServletResponse.getOutputStream();
         out.write(html.getBytes("UTF-8"));
         out.flush();
