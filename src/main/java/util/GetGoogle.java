@@ -71,7 +71,8 @@ public class GetGoogle {
      * @return
      */
     public String getJson(String q,String start) {
-        String surl = getURL(q,"007765593562555407508:qxj7yrxd00a",start); //cx为搜索引擎ID
+        //cx为搜索引擎ID
+        String surl = getURL(q,"007765593562555407508:qxj7yrxd00a",start);
         return new OK3().get(surl);
     }
 
