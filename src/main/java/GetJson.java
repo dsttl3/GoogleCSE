@@ -15,12 +15,10 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- * 返回 html
+ * 返回 Json
  * @author dsttl3
  */
 public class GetJson implements HttpRequestHandler {
-
-
 
     @Override
     public void handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Context context)
@@ -35,7 +33,7 @@ public class GetJson implements HttpRequestHandler {
             }
         }
         httpServletResponse.setStatus(200);
-        httpServletResponse.setHeader("content-type", "text/html; charset=utf-8");
+        httpServletResponse.setHeader("content-type", "application/json; charset=utf-8");
         String json = new GetGoogle().getJson(sou, String.valueOf(index));
         json = json.substring(34, json.length() - 2);
         GCes gcse = new Gson().fromJson(json, GCes.class);
@@ -58,7 +56,7 @@ public class GetJson implements HttpRequestHandler {
         }
         String myJson = new Gson().toJson(cse);
         OutputStream out = httpServletResponse.getOutputStream();
-        out.write(myJson.getBytes("UTF-8"));
+        out.write(myJson.getBytes());
         out.flush();
         out.close();
     }
