@@ -1,5 +1,8 @@
 package bean.cse;
 
+/**
+ * @author dsttl3
+ */
 public class Cursor {
 
     private String searchResultTime;
