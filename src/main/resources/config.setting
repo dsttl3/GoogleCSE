@@ -1,5 +1,11 @@
 [cse]
+# 搜索引擎ID (在 https://cse.google.com 申请)
 cx = 007765593562555407508:qxj7yrxd00a
+# url 主域名 （改成自己的域名）
 url = https://google.dsttl3.cn/
+# css链接
 cssurl = https://dsttl3.cn/css/st.css
+# logo图片
 logourl = https://dsttl3.cn/img/dstt.png
+# 百度统计ID
+bdid = a177f39aa76e5026c3a549f48d7b8a0e
