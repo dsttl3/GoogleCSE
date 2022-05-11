@@ -19,9 +19,6 @@ import java.io.OutputStream;
  * @author dsttl3
  */
 public class GetHtml implements HttpRequestHandler {
-
-
-
     @Override
     public void handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Context context)
             throws IOException, ServletException {
@@ -39,12 +36,10 @@ public class GetHtml implements HttpRequestHandler {
         String json = new GetGoogle().getJson(sou, String.valueOf(index));
         json = json.substring(34, json.length() - 2);
         GCes gcse = new Gson().fromJson(json, GCes.class);
-
         Setting setting = new Setting("config.setting");
-        String url = setting.getStr("url","cse","NOLL");
+        String url = setting.getStr("url","cse","https://google.dsttl3.cn/");
         String cssUrl = setting.getStr("cssurl","cse","https://dsttl3.cn/css/st.css");
-        String logoUrl = setting.getStr("logourl","cse","NOLL");
-
+        String logoUrl = setting.getStr("logourl","cse","https://dsttl3.cn/img/dstt.png");
         if (gcse.getResults().size() < 10) {
             index = -10;
         }
