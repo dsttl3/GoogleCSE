@@ -1,5 +1,8 @@
 package bean.search;
 
+/**
+ * @author dsttl3
+ */
 public class CseEntity {
 
 	private String cse_tok;
