@@ -2,6 +2,9 @@ package bean.cse;
 
 import java.util.List;
 
+/**
+ * @author dsttl3
+ */
 public class Cse {
     private boolean ok;
     private String msg;
