@@ -17,7 +17,7 @@
         <dependency>
             <groupId>com.aliyun.fc.runtime</groupId>
             <artifactId>fc-java-core</artifactId>
-            <version>1.4.0</version>
+            <version>1.4.1</version>
         </dependency>
 
         <dependency>
@@ -30,6 +30,12 @@
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
             <version>5.0.0-alpha.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.0</version>
         </dependency>
     </dependencies>
 

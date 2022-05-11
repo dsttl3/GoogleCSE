@@ -1,6 +1,7 @@
 package util;
 
 import bean.search.CseEntity;
+import cn.hutool.setting.Setting;
 
 /**
  * @author dsttl3
@@ -55,7 +56,7 @@ public class GetGoogle {
      * @param cx 搜索网页ID
      * @return URL
      */
-    private String getURL(String q, String cx, String start) {
+    private String getUrl(String q, String cx, String start) {
         CseEntity cse = getCse(cx);
         if (cse != null) {
             return "https://cse.google.com/cse/element/v1?hl=zh-CN"
@@ -72,16 +73,16 @@ public class GetGoogle {
     }
 
     /**
-     * 获取搜索结果
-     *
+     * 获取查询结果（原始结果）
      * @param q     搜索值
-     * @param start 索引
-     * @return
+     * @param start  查询结果索引
+     * @return url
      */
     public String getJson(String q, String start) {
+        String cx = new Setting("config.setting").getStr("cx","cse","NOLL");
         //cx为搜索引擎ID
-        String surl = getURL(q, "007765593562555407508:qxj7yrxd00a", start);
-        return new OkUtil().get(surl);
+        String sUrl = getUrl(q, cx, start);
+        return new OkUtil().get(sUrl);
     }
 
 }

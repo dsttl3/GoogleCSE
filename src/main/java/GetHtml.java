@@ -1,6 +1,7 @@
 import bean.cse.Cse;
 import bean.cse.GCes;
 import bean.cse.Result;
+import cn.hutool.setting.Setting;
 import com.aliyun.fc.runtime.Context;
 import com.aliyun.fc.runtime.HttpRequestHandler;
 import com.google.gson.Gson;
@@ -35,27 +36,35 @@ public class GetHtml implements HttpRequestHandler {
         }
         httpServletResponse.setStatus(200);
         httpServletResponse.setHeader("content-type", "text/html; charset=utf-8");
-        String json = new GetGoogle().getJson(sou, index + "");
+        String json = new GetGoogle().getJson(sou, String.valueOf(index));
         json = json.substring(34, json.length() - 2);
         GCes gcse = new Gson().fromJson(json, GCes.class);
+
+        Setting setting = new Setting("config.setting");
+        String url = setting.getStr("url","cse","NOLL");
+        String cssUrl = setting.getStr("cssurl","cse","https://dsttl3.cn/css/st.css");
+        String logoUrl = setting.getStr("logourl","cse","NOLL");
+
         if (gcse.getResults().size() < 10) {
             index = -10;
         }
         Cse cse = new Cse();
         if (TextUtil.isBlank(sou)) {
             cse.setOk(false);
-            cse.setMsg("sou is null");
+            cse.setMsg("sou参数为空");
         } else {
             cse.setOk(true);
             cse.setMsg("ok");
-            cse.setNext("https://google.dsttl3.cn/?sou=" + sou + "&index=" + (index + 10));
+            cse.setNext(url + "?sou=" + sou + "&index=" + (index + 10));
             cse.setResultCount(gcse.getCursor().getResultCount());
             cse.setSearchResultTime(gcse.getCursor().getSearchResultTime());
             cse.setResults(gcse.getResults());
         }
         String htmlTitle = "<!DOCTYPE html>\n<html><head>\n<title>" +
                 sou +
-                "</title>\n<link type=\"text/css\" href=\"https://dsttl3.cn/css/st.css\" rel=\"stylesheet\"></head>";
+                "</title>\n<link type=\"text/css\" href=\"" +
+                cssUrl +
+                "\" rel=\"stylesheet\"></head>";
         StringBuilder htmlList = new StringBuilder();
         for (Result result : cse.getResults()) {
             htmlList.append("<div class=\"google-list\">\n<a href=\"");
@@ -70,9 +79,13 @@ public class GetHtml implements HttpRequestHandler {
             htmlList.append(result.getVisibleUrl());
             htmlList.append("</div>\n</div>");
         }
-        String souHtml = "<div class=\"m_top\">\n<div class=\"top_icon\"><img style=\"height: 50px; margin-left: 30px;\" src=\"https://dsttl3.cn/img/dstt.png\" /></div>\n" +
+        String souHtml = "<div class=\"m_top\">\n<div class=\"top_icon\"><img style=\"height: 50px; margin-left: 30px;\" src=\"" +
+                logoUrl +
+                "\" /></div>\n" +
                 "<div class=\"top_sou\">\n" +
-                "<form class=\"search_form\" action=\"https://google.dsttl3.cn/\"> \n<input type=\"text\" class=\"input_text\" name=\"sou\" value=\"" +
+                "<form class=\"search_form\" action=\"" +
+                url +
+                "\"> \n<input type=\"text\" class=\"input_text\" name=\"sou\" value=\"" +
                 sou +
                 "\">\n<input type=\"submit\" value=\"&#x641C;&#x7D22;\" class=\"input_sub\">\n</form>\n</div>\n</div>";
         String htmlBody = "<body>\n" +
