@@ -59,7 +59,17 @@ public class GetHtml implements HttpRequestHandler {
                 sou +
                 "</title>\n<link type=\"text/css\" href=\"" +
                 cssUrl +
-                "\" rel=\"stylesheet\"></head>";
+                "\" rel=\"stylesheet\">" +
+                "<script>\n" +
+                "var _hmt = _hmt || [];\n" +
+                "(function() {\n" +
+                "  var hm = document.createElement(\"script\");\n" +
+                "  hm.src = \"https://hm.baidu.com/hm.js?a177f39aa76e5026c3a549f48d7b8a0e\";\n" +
+                "  var s = document.getElementsByTagName(\"script\")[0]; \n" +
+                "  s.parentNode.insertBefore(hm, s);\n" +
+                "})();\n" +
+                "</script>\n" +
+                "</head>";
         StringBuilder htmlList = new StringBuilder();
         for (Result result : cse.getResults()) {
             htmlList.append("<div class=\"google-list\">\n<a href=\"");
