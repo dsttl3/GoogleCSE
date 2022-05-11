@@ -19,6 +19,8 @@ import java.io.OutputStream;
  */
 public class GetHtml implements HttpRequestHandler {
 
+
+
     @Override
     public void handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Context context)
             throws IOException, ServletException {
