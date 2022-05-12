@@ -15,7 +15,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- * 返回 html
+ * 阿里云函数计算接口
+ * 直接返回 html 页面
  * @author dsttl3
  */
 public class GetHtml implements HttpRequestHandler {
