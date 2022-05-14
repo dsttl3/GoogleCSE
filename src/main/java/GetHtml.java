@@ -25,6 +25,7 @@ public class GetHtml implements HttpRequestHandler {
             throws IOException, ServletException {
         String sou = httpServletRequest.getParameter("sou");
         String sindex = httpServletRequest.getParameter("index");
+        String cx = httpServletRequest.getParameter("cx");
         int index = 0;
         if (!TextUtil.isBlank(sindex)) {
             index = Integer.parseInt(httpServletRequest.getParameter("index"));
@@ -32,9 +33,12 @@ public class GetHtml implements HttpRequestHandler {
                 index = -10;
             }
         }
+        if (TextUtil.isBlank(cx)){
+            cx = new Setting("config.setting").getStr("cx","cse","a177f39aa76e5026c3a549f48d7b8a0e");
+        }
         httpServletResponse.setStatus(200);
         httpServletResponse.setHeader("content-type", "text/html; charset=utf-8");
-        String json = new GetGoogle().getJson(sou, String.valueOf(index));
+        String json = new GetGoogle().getJson(sou, String.valueOf(index),cx);
         json = json.substring(34, json.length() - 2);
         GCes gcse = new Gson().fromJson(json, GCes.class);
         Setting setting = new Setting("config.setting");

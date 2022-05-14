@@ -78,8 +78,8 @@ public class GetGoogle {
      * @param start  查询结果索引
      * @return url
      */
-    public String getJson(String q, String start) {
-        String cx = new Setting("config.setting").getStr("cx","cse","NOLL");
+    public String getJson(String q, String start, String cx) {
+//        String cx = new Setting("config.setting").getStr("cx","cse","NOLL");
         //cx为搜索引擎ID
         String sUrl = getUrl(q, cx, start);
         return new OkUtil().get(sUrl);
