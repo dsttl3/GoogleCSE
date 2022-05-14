@@ -54,7 +54,7 @@ public class GetJson implements HttpRequestHandler {
         } else {
             cse.setOk(true);
             cse.setMsg("ok");
-            cse.setNext(url + "?sou=" + sou + "&index=" + (index + 10));
+            cse.setNext(url + "?sou=" + sou + "&index=" + (index + 10) + "&cx=" + cx);
             cse.setResultCount(gcse.getCursor().getResultCount());
             cse.setSearchResultTime(gcse.getCursor().getSearchResultTime());
             cse.setResults(gcse.getResults());
