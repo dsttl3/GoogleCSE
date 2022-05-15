@@ -41,11 +41,11 @@ public class GetHtml implements HttpRequestHandler {
         String json = new GetGoogle().getJson(sou, String.valueOf(index),cx);
         json = json.substring(34, json.length() - 2);
         GCes gcse = new Gson().fromJson(json, GCes.class);
-        Setting setting = new Setting("config.setting");
-        String url = setting.getStr("url","cse","https://google.dsttl3.cn/");
-        String cssUrl = setting.getStr("cssurl","cse","https://dsttl3.cn/css/st.css");
-        String logoUrl = setting.getStr("logourl","cse","https://dsttl3.cn/img/dstt.png");
-        String bdId = setting.getStr("bdid","cse","");
+        Setting setting = new Setting("config.setting").getSetting("cse");
+        String url = setting.getStr("url","https://google.dsttl3.cn/");
+        String cssUrl = setting.getStr("cssurl","https://dsttl3.cn/css/st.css");
+        String logoUrl = setting.getStr("logourl","https://dsttl3.cn/img/dstt.png");
+        String bdId = setting.getStr("bdid","");
         if (gcse.getResults().size() < 10) {
             index = -10;
         }
