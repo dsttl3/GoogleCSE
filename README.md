@@ -65,11 +65,19 @@ bdid = a177f39aa76e5026c3a549f48d7b8a0e
 
 # 配置Chrome地址栏搜索和右键快捷搜索   
 首先打开chrome的设置，找到搜索引擎选项   
+
 ![image.png](https://harmonyos.oss-cn-beijing.aliyuncs.com/images/202205/84181f305f5302280820301821c73df90e872d.png)
+
 选择`管理搜索引擎和网站搜索`   
+
 ![image.png](https://harmonyos.oss-cn-beijing.aliyuncs.com/images/202205/c5d90d940b9f4e139e156846671e387d8172fb.png)
+
 在`网站搜索`模块下添加   
+
 ![image.png](https://harmonyos.oss-cn-beijing.aliyuncs.com/images/202205/b62337102c40cb41baa012e119ccde6836ea57.png)   
+
 ![image.png](https://harmonyos.oss-cn-beijing.aliyuncs.com/images/202205/852f61e145d4b2e5e14920d85b0c6138078ac7.png)
+
 最后设置成默认搜索   
+
 ![image.png](https://harmonyos.oss-cn-beijing.aliyuncs.com/images/202205/3139a25991ed97f1d26394c80fdd64f52fd595.png)
