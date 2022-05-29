@@ -7,7 +7,6 @@ import com.aliyun.fc.runtime.HttpRequestHandler;
 import com.google.gson.Gson;
 import util.GetGoogle;
 import util.TextUtil;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
