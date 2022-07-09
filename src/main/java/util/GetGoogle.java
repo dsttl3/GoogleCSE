@@ -68,7 +68,7 @@ public class GetGoogle {
                     + "&start=" + start
                     + "&q=" + q;
         } else {
-            return "https://fc.dsttl3.cn";
+            return "https://l3.pub";
         }
     }
 
