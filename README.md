@@ -11,8 +11,6 @@
 ``` 
 // github 仓库地址
 https://github.com/dsttl3/GoogleCSE
-// Gitee（码云） 仓库地址
-https://gitee.com/dsttl3/GoogleCSE
 ```
 需修改`\src\main\resources`目录下的`config.setting`配置文件，如下   
 ``` 
