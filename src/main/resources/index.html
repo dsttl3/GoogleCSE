@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>dsttl3的Google搜索</title>
+    <meta charset="utf-8">
+    <link rel="apple-touch-icon" href="ico/icon.png">
+    <style>
+        body,
+        ul,
+        li,
+        div,
+        a,
+        p,
+        input,
+        bottom,
+        samp {
+            padding: 0;
+            margin: 0;
+            background: none;
+        }
+        body {
+            background: url(https://api.vvhan.com/api/bing?type=sj) no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .main {
+            margin: 0;
+        }
+
+        .main_center {
+            width: 100%;
+            position: fixed;
+            top: 18%;
+            text-align: center;
+        }
+
+        .m_c_d {
+            background: #ffffffdd;
+            width: 450px;
+            margin: 0 auto;
+            padding: 32px;
+            border-radius: 32px;
+        }
+
+        .in_text {
+            width: 380px;
+            padding: 6px 32px;
+            font-size: 26px;
+            border: none;
+            outline: none;
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 32px;
+            background: #ffffffdd;
+        }
+
+        .sub_btn {
+            width: 200px;
+            padding: 6px;
+            margin-top: 32px;
+            font-size: 26px;
+            border: none;
+            outline: none;
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 8px;
+            background: #66ccffdd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="main_center">
+            <div class="m_c_d">
+                <form action="https://google.dsttl3.cn/">
+                    <img src="https://wb.dsttl3.cn/img/googlelogo.png" />
+                    <input class="in_text" type="text" name="sou" placeholder="" autofocus /><br>
+                    <button class="sub_btn" type="submit">搜索</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>

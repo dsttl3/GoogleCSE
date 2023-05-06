@@ -6,12 +6,15 @@ import com.aliyun.fc.runtime.Context;
 import com.aliyun.fc.runtime.HttpRequestHandler;
 import com.google.gson.Gson;
 import util.GetGoogle;
+import util.GetIndex;
 import util.TextUtil;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 
 /**
  * 阿里云函数计算接口
@@ -53,7 +56,7 @@ public class GetHtml implements HttpRequestHandler {
             cse.setOk(false);
             cse.setMsg("sou参数为空");
             OutputStream out = httpServletResponse.getOutputStream();
-            out.write("sou参数为空".getBytes("UTF-8"));
+            out.write(GetIndex.load().getBytes(StandardCharsets.UTF_8));
             out.flush();
             out.close();
             return;
@@ -118,7 +121,7 @@ public class GetHtml implements HttpRequestHandler {
                 "\">\n<div class=\"next\">&#x4E0B;&#x4E00;&#x9875;</div>\n</a>\n</div>\n</body></html>";
         String html = htmlTitle + htmlBody;
         OutputStream out = httpServletResponse.getOutputStream();
-        out.write(html.getBytes("UTF-8"));
+        out.write(html.getBytes(StandardCharsets.UTF_8));
         out.flush();
         out.close();
     }
