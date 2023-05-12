@@ -54,7 +54,7 @@ public class GetHtml implements HttpRequestHandler {
         Cse cse = new Cse();
         if (TextUtil.isBlank(sou)) {
             cse.setOk(false);
-            cse.setMsg("sou参数为空");
+//            cse.setMsg("sou参数为空");
             OutputStream out = httpServletResponse.getOutputStream();
             out.write(GetIndex.readHtmlFile("index.html").getBytes(StandardCharsets.UTF_8));
             out.flush();
