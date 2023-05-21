@@ -73,6 +73,7 @@ public class GetHtml implements HttpRequestHandler {
                 "</title>\n<link type=\"text/css\" href=\"" +
                 cssUrl +
                 "\" rel=\"stylesheet\">" +
+                "<link rel=\"shortcut icon\" href=\"https://wb.dsttl3.cn/img/google_logo.ico\" type=\"image/x-icon\">" +
                 "<script>\n" +
                 "var _hmt = _hmt || [];\n" +
                 "(function() {\n" +

@@ -2,9 +2,10 @@
 <html lang="zh-CN">
 
 <head>
-    <title>dsttl3的Google搜索</title>
+    <title>Google搜索</title>
     <meta charset="utf-8">
-    <link rel="apple-touch-icon" href="ico/icon.png">
+<!--    <link rel="apple-touch-icon" href="ico/icon.png">-->
+    <link rel="shortcut icon" href="https://wb.dsttl3.cn/img/google_logo.ico" type="image/x-icon">
     <style>
         body,
         ul,
@@ -109,11 +110,21 @@
             color: inherit;
         }
     </style>
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?a177f39aa76e5026c3a549f48d7b8a0e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
 </head>
 
 <body>
     <div class="main">
-
         <div class="main_center">
             <div class="search-box">
                 <form action="https://google.dsttl3.cn/">
@@ -121,7 +132,6 @@
                     <input id="search-input" type="text" name="sou" placeholder="" autofocus autocomplete="off" />
                     <ul id="search-results"></ul>
                     <button class="sub_btn" type="submit">搜索</button>
-
                 </form>
             </div>
         </div>
