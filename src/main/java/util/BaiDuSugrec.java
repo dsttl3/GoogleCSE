@@ -14,6 +14,9 @@ import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
+/**
+ * 百度搜索提示词
+ */
 public class BaiDuSugrec implements HttpRequestHandler {
     @Override
     public void handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Context context) throws IOException, ServletException {

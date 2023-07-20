@@ -24,7 +24,7 @@ public class GetIndex {
             }
             br.close();
         } catch (IOException e) {
-            return "读取网页错误，请尝试访问https://l3.pub";
+            return "读取网页错误，请尝试访问https://l3.pub 或 https://google.dsttl3.cn";
         }
         return sb.toString();
     }
