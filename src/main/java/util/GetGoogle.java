@@ -14,7 +14,7 @@ public class GetGoogle {
      * @return  -
      */
     private String getCseJs(String cx) {
-        String url = "https://cse.google.com/cse.js?cx=" + cx;
+        String url = "https://cse.l3.pub/cse.js?cx=" + cx;
         String js = new OkUtil().get(url);
         if (js.indexOf("cse_token") > 0 && js.indexOf("\"cselibVersion\": \"") > 0) {
             return js;
@@ -58,7 +58,7 @@ public class GetGoogle {
     private String getUrl(String q, String cx, String start) {
         CseEntity cse = getCse(cx);
         if (cse != null) {
-            return "https://cse.google.com/cse/element/v1?hl=zh-CN"
+            return "https://cse.l3.pub/cse/element/v1?hl=zh-CN"
                     + "&gl=cn"
                     + "&callback=google.search.cse.api5190"
                     + "&cx=" + cx
