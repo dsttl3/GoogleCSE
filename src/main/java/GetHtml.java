@@ -16,7 +16,7 @@ import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 
 /**
- * 阿里云函数计算接口
+ * 阿里云函数计算接口]
  * 直接返回 html 页面
  * @author dsttl3
  */
